@@ -109,6 +109,9 @@ namespace PhotinoNET
 		///<summary>OPTIONAL: If true, native browser control covers the entire screen. Useful for kiosks for example. Incompatible with Maximized and Minimized. Default is false.</summary>
 		[MarshalAs(UnmanagedType.I1)] internal bool FullScreen;
 		
+		///<summary>OPTIONAL: If true, native window is hidden. Default is false.</summary>
+		[MarshalAs(UnmanagedType.I1)] internal bool Hidden; 
+		
 		///<summary>OPTIONAL: If true, native window is maximized to fill the screen. Incompatible with Minimized and FullScreen. Default is false.</summary>
 		[MarshalAs(UnmanagedType.I1)] internal bool Maximized;
 		
