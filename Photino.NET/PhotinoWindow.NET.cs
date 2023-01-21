@@ -342,7 +342,7 @@ public partial class PhotinoWindow
         get
         {
             if (_nativeInstance == IntPtr.Zero)
-                return _startupParameters.Minimized;
+                return _startupParameters.Hidden;
 
             bool hidden = false;
             Invoke(() => Photino_GetHidden(_nativeInstance, out hidden));
@@ -353,7 +353,7 @@ public partial class PhotinoWindow
             if (Hidden != value)
             {
                 if (_nativeInstance == IntPtr.Zero)
-                    _startupParameters.Minimized = value;
+                    _startupParameters.Hidden = value;
                 else
                     Invoke(() => Photino_SetHidden(_nativeInstance, value));
             }
@@ -1132,9 +1132,9 @@ public partial class PhotinoWindow
     ///<summary>When true, the taskbar is skipped. Default is false.</summary>
     public PhotinoWindow SetSkipTaskbar(bool skipTaskbar)
     {
-        Log($".SetHidden({skipTaskbar})");
+        Log($".SetSkipTaskbar({skipTaskbar})");
         if (_nativeInstance == IntPtr.Zero)
-            _startupParameters.Minimized = skipTaskbar;
+            _startupParameters.SkipTaskbar = skipTaskbar;
         else
             Invoke(() => Photino_SetSkipTaskbar(_nativeInstance, skipTaskbar));
         return this;
