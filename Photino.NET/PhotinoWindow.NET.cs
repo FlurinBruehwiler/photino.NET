@@ -1129,6 +1129,18 @@ public partial class PhotinoWindow
         return this;
     }
 
+    ///<summary>When true, the window has shadows. Default is false.</summary>
+    public PhotinoWindow SetShadows(bool shadows)
+    {
+        Log($".SetShadows({shadows})");
+
+        if (_nativeInstance != IntPtr.Zero)
+            throw new ApplicationException("Shadow setting cannot be used on an itialized window.");
+
+        _startupParameters.Shadows = shadows;
+        return this;
+    }
+
     ///<summary>When true, the taskbar is skipped. Default is false.</summary>
     public PhotinoWindow SetSkipTaskbar(bool skipTaskbar)
     {
